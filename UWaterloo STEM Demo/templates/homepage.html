@@ -1,0 +1,53 @@
+{% extends 'bootstrap/base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+<html>
+      <head>
+        <link rel="stylesheet" href="custom.css">
+      </head>
+          <title> {{ title }} </title>
+          {% block content %}
+          <body>
+              <h1>What Student Cluster Would You have been Part of?</h1>
+                  <form action="" method="post" novalidate>
+                    {{ form.hidden_tag() }}
+                    <p>
+                      {{ form.gender.label }} {{ form.gender(size=32) }}
+                    </p>
+                    <p>
+                      {{ form.stem_classifier.label }}
+                      {{ form.stem_classifier(size=32) }}
+                    </p>
+                    <p>
+                      {{ form.intl.label }}
+                      {{ form.intl(size=32) }}
+                    </p>
+                    <p>
+                      {{ form.UNIV101.label }}
+                      {{ form.UNIV101(size=32) }}
+                    </p>
+                    <p>
+                      {{ form.ENGL109.label }}
+                      {{ form.ENGL109(size=32) }}
+                    </p>
+                    <p>
+                      {{ form.salary.label }}<br>
+                      {{ form.salary(size=32) }}
+                    </p>
+                    <p>
+                      {{ form.submit() }}
+                    </p>
+                    {{ form.csrf_token }}
+                  </form>
+              <hr>
+              {% with messages = get_flashed_messages() %}
+              {% if messages %}
+              <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+              </ul>
+              {% endif %}
+              {% endwith %}
+          </body>
+          {% endblock %}
+  </html>
