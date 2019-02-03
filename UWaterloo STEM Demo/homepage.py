@@ -5,7 +5,7 @@ from flask_bootstrap import Bootstrap
 
 
 app = Flask(__name__, template_folder='templates')
-bootstrap_app = Bootstrap(app)
+# bootstrap_app = Bootstrap(app)
 app.config['SECRET_KEY'] = 'asecretkey'
 @app.route('/', methods=['GET', 'POST'])
 

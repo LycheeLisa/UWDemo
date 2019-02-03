@@ -1,53 +1,78 @@
-{% extends 'bootstrap/base.html' %}
-{% import 'bootstrap/wtf.html' as wtf %}
 <html>
       <head>
-        <link rel="stylesheet" href="custom.css">
+          <link rel="stylesheet" media="screen" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
+            <link rel="stylesheet" media="screen" href="{{ url_for('static', filename='css/custom.css') }}" />
       </head>
           <title> {{ title }} </title>
           {% block content %}
           <body>
-              <h1>What Student Cluster Would You have been Part of?</h1>
-                  <form action="" method="post" novalidate>
-                    {{ form.hidden_tag() }}
-                    <p>
-                      {{ form.gender.label }} {{ form.gender(size=32) }}
-                    </p>
-                    <p>
-                      {{ form.stem_classifier.label }}
-                      {{ form.stem_classifier(size=32) }}
-                    </p>
-                    <p>
-                      {{ form.intl.label }}
-                      {{ form.intl(size=32) }}
-                    </p>
-                    <p>
-                      {{ form.UNIV101.label }}
-                      {{ form.UNIV101(size=32) }}
-                    </p>
-                    <p>
-                      {{ form.ENGL109.label }}
-                      {{ form.ENGL109(size=32) }}
-                    </p>
-                    <p>
-                      {{ form.salary.label }}<br>
-                      {{ form.salary(size=32) }}
-                    </p>
-                    <p>
-                      {{ form.submit() }}
-                    </p>
-                    {{ form.csrf_token }}
-                  </form>
-              <hr>
-              {% with messages = get_flashed_messages() %}
-              {% if messages %}
-              <ul>
-                {% for message in messages %}
-                <li>{{ message }}</li>
-                {% endfor %}
-              </ul>
-              {% endif %}
-              {% endwith %}
+            <div class="container">
+              <div class="row">
+                <div class="jumbotron jumbotron-fluid full-page background-image">
+                  <div class="container">
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="jumbotron jumbotron-fluid full-page">
+                    <div class="container">
+                      <img class="center" src="static/images/problem.png">
+                      <h3 class="display-4 title">The Problem</h3>
+                      <p class="explanation-text">There is an underrepresentation of Women in STEM undergraduate degrees, graduate degrees, and careers.</p>
+                      <img class="center" src="static/images/goal.png">
+                      <h3 class="display-4 title">Our Solution</h3>
+                      <p class="explanation-text">Analyze UW data to identify factors that lead to women student success and identify strategies to increase enrolment, academic success, and careers growth in STEM.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-5 survey-display">
+                  <h1 class="survey-header title">What Type of Student Would You Have Been Classified as?</h1>
+                  <p class="explanation-text">See what student profile our k-means
+                    machine learning model would have placed you in, with interesting
+                    findings about your particular student profile and how to increase university enrolment, academic success, and careers growth in STEM for these students.</p>
+                    <p class="explanation-text">Fill in the questions below and click "Calculate Cluster."</p>
+                      <form action="" method="post" novalidate>
+                        {{ form.hidden_tag() }}
+                        <p>
+                          {{ form.gender.label }} {{ form.gender(size=32) }}
+                        </p>
+                        <p>
+                          {{ form.stem_classifier.label }}
+                          {{ form.stem_classifier(size=32) }}
+                        </p>
+                        <p>
+                          {{ form.intl.label }}
+                          {{ form.intl(size=32) }}
+                        </p>
+                        <p>
+                          {{ form.UNIV101.label }}
+                          {{ form.UNIV101(size=32) }}
+                        </p>
+                        <p>
+                          {{ form.ENGL109.label }}
+                          {{ form.ENGL109(size=32) }}
+                        </p>
+                        <p>
+                          {{ form.salary.label }}<br>
+                          {{ form.salary(size=32) }}
+                        </p>
+                        <p>
+                          {{ form.submit() }}
+                        </p>
+                        {{ form.csrf_token }}
+                      </form>
+                  <hr>
+                  {% with messages = get_flashed_messages() %}
+                  {% if messages %}
+                  <ul>
+                    {% for message in messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                  </ul>
+                  {% endif %}
+                  {% endwith %}
+                </div>
+              </div>
           </body>
           {% endblock %}
   </html>

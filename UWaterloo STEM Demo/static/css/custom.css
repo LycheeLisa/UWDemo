@@ -1,0 +1,39 @@
+.survey-header{
+  font-weight: bold;
+  text-align: center;
+  font-size: 30px;
+}
+
+.graph-display{
+  float: right;
+}
+
+.full-page{
+  height:100%;
+}
+
+.survey-display{
+    margin-left: 30px;
+}
+
+.background-image{
+  background-image: url('../images/frontpage1.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75px;
+}
+
+.title{
+  margin-top:10px;
+  font-weight: bold;
+}
+
+.explanation-text{
+  font-size: 12px;
+}
