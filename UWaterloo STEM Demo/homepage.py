@@ -15,7 +15,11 @@ def home():
     if form.validate_on_submit():
         inputs.extend((form.gender.data, form.stem_classifier.data, form.intl.data, form.UNIV101.data, form.ENGL109.data, form.salary.data))
         flash('Data entered {}'.format(inputs))
-    return render_template("homepage.html", title = 'UWaterloo Demo',form=form, input=inputs)
+    return render_template("homepage.html", title = 'Machine Learning Demo',form=form, input=inputs)
+    
+@app.route('/about', methods=['GET'])
+def about():
+    return render_template("aboutproject.html", title= "About This Project")
 
 @app.route('/result', methods=['GET', 'POST'])
 def results():
