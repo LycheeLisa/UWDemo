@@ -1,27 +1,39 @@
 <html>
       <head>
           <link rel="stylesheet" media="screen" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
-            <link rel="stylesheet" media="screen" href="{{ url_for('static', filename='css/custom.css') }}" />
+          <link rel="stylesheet" media="screen" href="{{ url_for('static', filename='css/custom.css') }}" />
+          <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
       </head>
           <title> {{ title }} </title>
           {% block content %}
           <body>
             <div class="container">
               <div class="row">
-                <div class="jumbotron jumbotron-fluid full-page background-image">
+                <div class="jumbotron jumbotron-fluid background-image full-page">
                   <div class="container">
                   </div>
               </div>
               <div class="row">
                 <div class="col-md-6">
-                  <div class="jumbotron jumbotron-fluid full-page">
-                    <div class="container">
+                  <div id="results" class="jumbotron jumbotron-fluid background-c">
+                    <div class="container result">
                       <img class="center" src="static/images/problem.png">
                       <h3 class="display-4 title">The Problem</h3>
                       <p class="explanation-text">There is an underrepresentation of Women in STEM undergraduate degrees, graduate degrees, and careers.</p>
                       <img class="center" src="static/images/goal.png">
-                      <h3 class="display-4 title">Our Solution</h3>
+                      <h3 class="display-4 title">Our Method</h3>
                       <p class="explanation-text">Analyze UW data to identify factors that lead to women student success and identify strategies to increase enrolment, academic success, and careers growth in STEM.</p>
+                      <img class="center" src="static/images/findings.png">
+                      <h3 class="display-4 title">Our Findings</h3>
+                      <p class="explanation-text">After cleaning, visualizing,
+                        and analyzing over 100,000 unique student records containing
+                        academic and co-op information, we were able to use machine learning techniques to
+                        group students into 6 main clusters with distinct attributes, preferences, and motivations.</p>
+                        <p class="explanation-text">These clusters gave the University insights on which groups of female students are strong candidates to
+                        pursue successful careers in STEM, but may not be doing so, due to systemic and psychological barriers. This will
+                        enable the University of Waterloo to begin developing targeted programs to support and encourage more female students
+                        to pursue opportunities in STEM.</p>
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -73,6 +85,11 @@
                   {% endwith %}
                 </div>
               </div>
+              <div class="row">
+                  <img src="static/images/goldstandard.png">
+              </div>
           </body>
           {% endblock %}
   </html>
+<script>
+</script>

@@ -37,3 +37,12 @@
 .explanation-text{
   font-size: 12px;
 }
+
+.background-c{
+  background-color: #f7f8f7;
+}
+
+.result-pic{
+  background-image: url('../images/goldstandard.png');
+  width: 500px;
+}
