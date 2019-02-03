@@ -1,3 +1,11 @@
+.jumbo-text{
+  font-size:40px;
+  font-weight: 700;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.extra-padding{
+  padding-top: 400px;
+}
 .survey-header{
   font-weight: bold;
   text-align: center;
@@ -17,7 +25,7 @@
 }
 
 .background-image{
-  background-image: url('../images/frontpage1.png');
+  background-image: url('../images/frontpage2.png');
   background-size: cover;
   background-repeat: no-repeat;
 }
