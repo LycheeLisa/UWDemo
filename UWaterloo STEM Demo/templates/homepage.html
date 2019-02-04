@@ -19,7 +19,7 @@
                 <div class="col-md-6">
                   <div id="results" class="jumbotron jumbotron-fluid background-c">
                     <div class="container result">
-                      <img class="center" src="static/images/problem.png">
+                      <img class="center" src= >
                       <h3 class="display-4 title">The Problem</h3>
                       <p class="explanation-text">There is an underrepresentation of Women in STEM undergraduate degrees, graduate degrees, and careers.</p>
                       <img class="center" src="static/images/goal.png">
@@ -45,7 +45,7 @@
                     machine learning model would have placed you in, with interesting
                     findings about your particular student profile and how to increase university enrolment, academic success, and careers growth in STEM for these students.</p>
                     <p class="explanation-text">Fill in the questions below and click "Calculate Cluster."</p>
-                      <form action="" method="post" novalidate>
+                      <form class="form form-horizontal" action="" method="post" novalidate>
                         {{ form.hidden_tag() }}
                         <p>
                           {{ form.gender.label }} {{ form.gender(size=32) }}
@@ -70,10 +70,21 @@
                           {{ form.salary.label }}<br>
                           {{ form.salary(size=32) }}
                         </p>
-                        <p>
-                          {{ form.submit() }}
-                        </p>
-                        {{ form.csrf_token }}
+                        <div class="form-group">
+                          {{ form.myField.label }}
+                          {{ form.myField }}
+                        </div>
+                        <!-- <div class="form-group col-md-4">
+                             <label for="inputState">State</label>
+                             <select id="inputState" class="form-control">
+                               <option value='3'selected>Choose...</option>
+                               <option value='1'>Rotimi</option>
+                             </select>
+                           </div> -->
+                           <p>
+                             {{ form.submit() }}
+                           </p>
+                           {{ form.csrf_token }}
                       </form>
                   <hr>
                   {% with messages = get_flashed_messages() %}
@@ -87,9 +98,54 @@
                   {% endwith %}
                 </div>
               </div>
-              <div class="row">
+<!-- results are beneath here -->
+
+<div class="container-fluid" >
+  <p class = "p1">Congrats! You are in Cluster {{clusterNum}}: {{clusterName}}!</p>
+<br>
+</div>
+
+              <div class="row center-block">
+
+              <div class="col-md-1"></div>
+                  <div class="col-xs-18 col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                        <div class="caption">
+                        <h4>Spider Graph</h4>
+                            <p>The spider graph is a visual representation of the attributes of this cluster.</p>
+                            <img src={{clusterSpider}} alt="Spider Graph" style="width:100%;height: 200px;">
+                      </div>
+                    </div>
+                  </div>
+
+                      <div class="col-xs-18 col-sm-6 col-md-3">
+                        <div class="thumbnail">
+                            <div class="caption">
+                            <h4>Cluster Breakdown</h4>
+                                <p>The spider graph is a visual representation of the attributes of this cluster.</p>
+                                <img src={{clusterStats}} alt="Cluster Breakdown" style="width:100%;height: 200px;">
+                          </div>
+                        </div>
+                      </div>
+
+
+                  <div class="col-xs-18 col-sm-6 col-md-3">
+                  <div class="thumbnail">
+              	<div class="form-group">
+              		<div class="caption">
+              		<h4>Step 3</h4>
+                        <p> Paste it in the box below and click Go!</p>
+               		<textarea type="text" class="form-control"  rows = "11" id="inputText" placeholder="Paste Here"></textarea>
+              		</div>
+              		</div>
+                        </div>
+                      </div>
+                      </div>
+
+
+              <!-- <div class="row">
                   <img src="static/images/goldstandard.png">
-              </div>
+              </div> -->
           </body>
           {% endblock %}
   </html>

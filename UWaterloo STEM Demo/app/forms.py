@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, RadioField
+from wtforms import StringField, SubmitField, RadioField, SelectField
 from wtforms.validators import DataRequired
 
 class InfoForm(FlaskForm):
@@ -10,3 +10,4 @@ class InfoForm(FlaskForm):
     ENGL109 = RadioField("ENGL109 Indicator:", choices=[("0", "Attended"), ("1", "Did not attend")])
     salary = StringField('Annual Salary')
     submit = SubmitField('Calculate Cluster')
+    myField = SelectField(u'Field name', choices = [("0","Hello"),(1,"Baby")])
