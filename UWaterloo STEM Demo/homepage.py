@@ -33,6 +33,11 @@ def home():
     return render_template("homepage.html", title = 'UWaterloo Demo',form=form, input=inputs, clusterNum=clusterNum,
     clusterName = clusterName, clusterSpider = clusterSpider, clusterStats = clusterStats)
 
+@app.route('/about', methods=['GET'])
+def about():
+    return render_template("aboutproject.html", title= "About This Project")
+
+
 @app.route('/result', methods=['GET', 'POST'])
 
 #gather graphics file names based on cluster

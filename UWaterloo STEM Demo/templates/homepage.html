@@ -3,18 +3,28 @@
           <link rel="stylesheet" media="screen" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
           <link rel="stylesheet" media="screen" href="{{ url_for('static', filename='css/custom.css') }}" />
           <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+          <script type=text/javascript src="{{url_for('static', filename='js/bootstrap.min.js') }}"></script>
+          <script type=text/javascript src="{{url_for('static', filename='js/npm.js') }}"></script>
       </head>
           <title> {{ title }} </title>
           {% block content %}
           <body>
+            <nav class="navbar navbar-default navbar-static-top navbackground">
+              <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                  <li><a href="http://127.0.0.1:9999/">Home</a></li>
+                  <li><a href="http://127.0.0.1:9999/about">About This Project</a></li>
+                </ul>
+              </div>
+            </nav>
             <div class="container">
               <div class="row">
-                <div class="jumbotron jumbotron-fluid background-image full-page">
+                <div class="jumbotron jumbotron-fluid background-image">
                   <h1 class="extra-padding"></h1>
                   <h1 class="jumbo-text">PROMOTING STUDENT SUCCESS WITH DATA DRIVEN GUIDANCE</h1>
-                  <div class="container">
-                  </div>
               </div>
+            </div>
+          </div>
               <div class="row">
                 <div class="col-md-6">
                   <div id="results" class="jumbotron jumbotron-fluid background-c">
@@ -148,6 +158,4 @@
               </div> -->
           </body>
           {% endblock %}
-  </html>
-<script>
-</script>
+</html>
