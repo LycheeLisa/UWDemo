@@ -8,7 +8,7 @@ import csv, sys
 
 
 app = Flask(__name__, template_folder='templates')
-# bootstrap_app = Bootstrap(app)
+Bootstrap(app)
 app.config['SECRET_KEY'] = 'asecretkey'
 
 @app.route('/', methods=['GET', 'POST'])
@@ -20,9 +20,11 @@ def home():
     clusterName = "No Name"
     clusterSpider = "static/images/problem.png"
     clusterStats =  "static/images/problem.png"
+
+
     if form.validate_on_submit():
-        # 12 inputs
-        inputs.extend((form.gender.data, form.stem_classifier.data, form.intl.data, form.UNIV101.data, form.ENGL109.data, form.salary.data, form.myField.data))
+        inputs.extend((form.year.data, form.program.data, form.salaryFirst.data, form.salaryLast.data, form.firstEval.data,
+        form.lastEval.data, form.coopTerms.data, form.uniAvg.data, form.hsAvg.data, form.uniYears.data, form.gender.data, form.stem.data))
         inputs = toInt(inputs)
         flash('Data entered {}'.format(inputs))
         clusterNum = puesdoModel(inputs) #returns a number between 1 and 6

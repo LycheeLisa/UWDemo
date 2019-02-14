@@ -1,0 +1,21 @@
+﻿Index ,Year ,Program,Salary first,Salary last,Co-op Term first evaluation,Co-op Term last evaluation,# Co-op Terms,University Average,High School Average,# Years in University,Gender,STEM Program
+0,2006,Accounting & Financial Mgt,10-14,10-14,0-5,0-5,1,<50,<50,1,Male,Yes
+1,2007,Actuarial Science,15-20,15-20,6,6,2,50-54,50-54,2,Female,No
+2,2008,Architecture,21-25,21-25,7,7,3,55-59,55-59,3,,
+3,2009,Biology,25-30,25-30,8,8,4,60-64,60-64,4,,
+4,2010,Business & Math (Double Degree),30+,30+,9,9,5,65-69,65-69,5,,
+5,2011,Chemical Engineering,,,10,10,6,70-74,70-74,6,,
+6,2012,Civil Engineering,,,,,,75-79,75-79,,,
+7,2013,Computer Engineering,,,,,,80-84,80-84,,,
+8,2014,Computer Science,,,,,,85-89,85-89,,,
+9,2015,Electrical Engineering,,,,,,90-94,90-94,,,
+10,2016,Environment & Business,,,,,,95+,95+,,,
+11,2017,Health Studies,,,,,,,,,,
+12,,Kinesiology,,,,,,,,,,
+13,,Mechanical Engineering,,,,,,,,,,
+14,,Mechatronics Engineering,,,,,,,,,,
+15,,Nanotechnology Engineering,,,,,,,,,,
+16,,Pharmacy,,,,,,,,,,
+17,,Planning,,,,,,,,,,
+18,,Software Engineering,,,,,,,,,,
+19,,Systems Design Engineering,,,,,,,,,,
