@@ -2,27 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>DevFolio Bootstrap Template</title>
+  <title>Accenture Pro-Bono Women in STEM</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
 
-  <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
-
   <!-- Bootstrap CSS File -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/css/custom.css" rel="stylesheet">
+  <link href="../static/css/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Libraries CSS Files -->
-  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="lib/animate/animate.min.css" rel="stylesheet">
-  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link href="../static/css/lib/animate/animate.min.css" rel="stylesheet">
+  <link href="../static/css/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="../static/css/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="../static/css/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
-  <link href="css/style.css" rel="stylesheet">
+  <link href="../static/css/style.css" rel="stylesheet">
 
   <!-- =======================================================
     Theme Name: DevFolio
@@ -65,7 +62,7 @@
   <!--/ Nav End /-->
 
   <!--/ Intro Skew Star /-->
-  <div id="home" class="intro route bg-image" style="background-image: url(img/frontpage.png)">
+  <div id="home" class="intro route bg-image" style="background-image: url(../static/images/frontpage.png)">
     <div class="overlay-itro"></div>
     <div class="intro-content display-table">
       <div class="table-cell">
@@ -81,26 +78,25 @@
   <!--/ Intro Skew End /-->
 
   <!--/ Section Services Star /-->
-  <section id="service" class="services-mf route">
+  <section id="about" class="services-mf route">
     <div class="container">
       <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-12 shorter">
           <div class="title-box text-center">
-            <h3 class="title-a">
+            <h3 class="title-a headerpadding">
               About This Project
             </h3>
-            <h4>
+            <h4 class="headerpadding">
               The Facts
             </h4>
-            <div class="line-mf"></div>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-md-4">
-          <div class="service-box">
+          <div class="service-box fact">
             <div class="service-ico">
-              <span class="ico-circle"><i class="ion-monitor"></i></span>
+              <span class="ico-circle"><i class="fas fa-chart-line"></i></span>
             </div>
             <div class="service-content">
               <p class="s-description text-center">
@@ -110,21 +106,21 @@
           </div>
         </div>
         <div class="col-md-4">
-          <div class="service-box">
+          <div class="service-box fact">
             <div class="service-ico">
-              <span class="ico-circle"><i class="ion-code-working"></i></span>
+              <span class="ico-circle"><i class="ion-cash"></i></span>
             </div>
             <div class="service-content">
               <p class="s-description text-center">
-                Women in STEM earn ~19.5% less than men,
+                Women in STEM earn ~19.5% less than men
               </p>
             </div>
           </div>
         </div>
         <div class="col-md-4">
-          <div class="service-box">
+          <div class="service-box fact">
             <div class="service-ico">
-              <span class="ico-circle"><i class="ion-camera"></i></span>
+              <span class="ico-circle"><i class="fas fa-sign-out-alt"></i></span>
             </div>
             <div class="service-content">
               <p class="s-description text-center">
@@ -153,9 +149,9 @@
       </div>
       <div class="row">
         <div class="col-md-4">
-          <div class="service-box">
+          <div class="service-box approach">
             <div class="service-ico">
-              <span class="ico-circle"><i class="ion-monitor"></i></span>
+              <span class="ico-circle"><i class="fas fa-user-graduate"></i></span>
             </div>
             <div class="service-content">
               <h2 class="s-title">Data Exploration</h2>
@@ -166,9 +162,9 @@
           </div>
         </div>
         <div class="col-md-4">
-          <div class="service-box">
+          <div class="service-box approach">
             <div class="service-ico">
-              <span class="ico-circle"><i class="ion-code-working"></i></span>
+              <span class="ico-circle"><i class="fas fa-brain"></i></span>
             </div>
             <div class="service-content">
               <h2 class="s-title">Unsupervised Machine Learning</h2>
@@ -179,16 +175,14 @@
           </div>
         </div>
         <div class="col-md-4">
-          <div class="service-box">
+          <div class="service-box approach">
             <div class="service-ico">
-              <span class="ico-circle"><i class="ion-camera"></i></span>
+              <span class="ico-circle"><i class="fas fa-female"></i></span>
             </div>
             <div class="service-content">
-              <h2 class="s-title">Photography</h2>
+              <h2 class="s-title">Human Centric Recommendations</h2>
               <p class="s-description text-center">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat! Quia,
-                provident vitae! Magni
-                tempora perferendis eum non provident.
+                Provided insights on how to better attract, empower, and support women in STEM in academics and co-ops. Insights also be leveraged to enhance current academic and experiential learning programs, to further promote student success.
               </p>
             </div>
           </div>
@@ -205,7 +199,7 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="contact-mf">
-            <div id="contact" class="box-shadow-full">
+            <div id="service" class="box-shadow-full">
               <div class="row">
                 <div class="col-md-6">
                   <div class="title-box-2">
@@ -318,7 +312,7 @@
                   <div class="row">
                     <div class="col-sm-6 col-md-5">
                       <div class="about-img">
-                        <img src="img/testimonial-2.jpg" class="img-fluid rounded b-shadow-a" alt="">
+                        <img src="../static/images/testimonial-4.jpg" class="img-fluid rounded b-shadow-a" alt="">
                       </div>
                     </div>
                     <div class="col-sm-6 col-md-7">
@@ -390,21 +384,21 @@
   <div id="preloader"></div>
 
   <!-- JavaScript Libraries -->
-  <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/jquery/jquery-migrate.min.js"></script>
-  <script src="lib/popper/popper.min.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-  <script src="lib/easing/easing.min.js"></script>
-  <script src="lib/counterup/jquery.waypoints.min.js"></script>
-  <script src="lib/counterup/jquery.counterup.js"></script>
-  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-  <script src="lib/lightbox/js/lightbox.min.js"></script>
-  <script src="lib/typed/typed.min.js"></script>
+  <script src="../static/css/lib/jquery/jquery.min.js"></script>
+  <script src="../static/css/lib/jquery/jquery-migrate.min.js"></script>
+  <script src="../static/css/lib/popper/popper.min.js"></script>
+  <script src="../static/css/lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="../static/css/lib/easing/easing.min.js"></script>
+  <script src="../static/css/lib/counterup/jquery.waypoints.min.js"></script>
+  <script src="../static/css/lib/counterup/jquery.counterup.js"></script>
+  <script src="../static/css/lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="../static/css/lib/lightbox/js/lightbox.min.js"></script>
+  <script src="../static/css/lib/typed/typed.min.js"></script>
   <!-- Contact Form JavaScript File -->
-  <script src="contactform/contactform.js"></script>
+  <script src="../static/css/contactform/contactform.js"></script>
 
   <!-- Template Main Javascript File -->
-  <script src="js/main.js"></script>
+  <script src="../static/js/main.js"></script>
 
 </body>
 </html>
