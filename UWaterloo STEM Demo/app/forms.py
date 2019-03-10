@@ -25,7 +25,7 @@ class InfoForm(FlaskForm):
     year =  SelectField(optionNames[1], choices = createChoices(1,formOptions))
     program = SelectField(optionNames[2], choices = createChoices(2,formOptions))
     salaryFirst = SelectField(optionNames[3], choices = createChoices(3,formOptions))
-    salaryLast = SelectField(optionNames[3], choices = createChoices(4,formOptions))
+    salaryLast = SelectField(optionNames[4], choices = createChoices(4,formOptions))
     firstEval = SelectField(optionNames[5], choices = createChoices(5,formOptions))
     lastEval = SelectField(optionNames[6], choices = createChoices(6,formOptions))
     coopTerms = SelectField(optionNames[7], choices = createChoices(7,formOptions))
