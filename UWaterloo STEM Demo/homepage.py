@@ -32,7 +32,11 @@ def home():
         clusterName = clusterInfo[1]
         clusterSpider = "static/images/" + clusterInfo[2]
         clusterStats = "static/images/" + clusterInfo[3]
+<<<<<<< HEAD
     return render_template("index.html", title = 'IWD 2019',form=form, input=inputs, clusterNum=clusterNum,
+=======
+    return render_template("index.html", title = 'UWaterloo Demo',form=form, input=inputs, clusterNum=clusterNum,
+>>>>>>> c01621e50bf76e1fab33bf1a971c2d5090f549f9
     clusterName = clusterName, clusterSpider = clusterSpider, clusterStats = clusterStats)
 
 @app.route('/about', methods=['GET'])
