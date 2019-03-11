@@ -15,11 +15,10 @@ app.config['SECRET_KEY'] = 'asecretkey'
 @app.route('/', methods=['GET', 'POST'])
 def home():
     form = InfoForm()
-    clusterObj =
+    myCluster = Cluster(6)
     inputs = []
     clusterNum = 6
-    clusterInfo = []
-    clusterName = "No Name"
+    clusterName = myCluster.getInfo()[1]
     clusterSpider = "static/images/problem.png"
     clusterStats =  "static/images/problem.png"
 
@@ -34,7 +33,7 @@ def home():
         clusterName = clusterInfo[1]
         clusterSpider = "static/images/" + clusterInfo[2]
         clusterStats = "static/images/" + clusterInfo[3]
-    return render_template("index.html", title = 'UWaterloo Demo',form=form, input=inputs, clusterNum=clusterNum,
+    return render_template("indexTEST.html", title = 'UWaterloo Demo', myCluster = myCluster, form=form, input=inputs, clusterNum=clusterNum,
     clusterName = clusterName, clusterSpider = clusterSpider, clusterStats = clusterStats)
 
 @app.route('/about', methods=['GET'])
