@@ -4,16 +4,18 @@ from app.forms import InfoForm
 from flask_bootstrap import Bootstrap
 from random import randrange #for testing- TO BE DELETED
 import csv, sys
+from app.clusters import Cluster
 
 
 
-app = Flask(__name__, template_folder='templates/DevFolio')
+app = Flask(__name__, template_folder='templates')
 Bootstrap(app)
 app.config['SECRET_KEY'] = 'asecretkey'
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
     form = InfoForm()
+    clusterObj =
     inputs = []
     clusterNum = 6
     clusterInfo = []
@@ -32,11 +34,7 @@ def home():
         clusterName = clusterInfo[1]
         clusterSpider = "static/images/" + clusterInfo[2]
         clusterStats = "static/images/" + clusterInfo[3]
-<<<<<<< HEAD
-    return render_template("index.html", title = 'IWD 2019',form=form, input=inputs, clusterNum=clusterNum,
-=======
     return render_template("index.html", title = 'UWaterloo Demo',form=form, input=inputs, clusterNum=clusterNum,
->>>>>>> c01621e50bf76e1fab33bf1a971c2d5090f549f9
     clusterName = clusterName, clusterSpider = clusterSpider, clusterStats = clusterStats)
 
 @app.route('/about', methods=['GET'])
