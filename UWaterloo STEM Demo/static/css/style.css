@@ -53,6 +53,7 @@ a:hover {
 .box-shadow,
 .paralax-mf,
 .service-box,
+.percent-box,
 .work-box,
 .card-blog {
   box-shadow: 0 13px 8px -10px rgba(0, 0, 0, 0.1);
@@ -218,6 +219,7 @@ a:hover {
   margin: 0 15px 0 0;
   box-shadow: 0 0 0 3px #ffb600;
   transition: all 500ms ease;
+
 }
 
 .socials .ico-circle:hover {
@@ -711,6 +713,13 @@ a:hover {
   margin-bottom: 3rem;
 }
 
+.percent-box {
+  background-color: #fff;
+  padding: 2.5rem 2.5rem;
+  border-radius: 1rem;
+  margin-bottom: 0.5rem;
+}
+
 .service-box:hover .ico-circle {
   transition: all 500ms ease;
   color: #fff;
@@ -730,6 +739,13 @@ a:hover {
 
 .service-box .s-title {
   font-size: 1.4rem;
+  text-transform: uppercase;
+  text-align: center;
+  padding: .4rem 0;
+}
+
+.percent-box .j-title {
+  font-size: 1rem;
   text-transform: uppercase;
   text-align: center;
   padding: .4rem 0;
@@ -1150,8 +1166,9 @@ footer .credits a {
 }
 
 .button:hover {
-  background-color: #0062d3;
-  color: #fff;
+  background-color: #ffeeab;
+  color: #000;
+  font-weight: bold;
   transition: all 500ms ease;
 }
 

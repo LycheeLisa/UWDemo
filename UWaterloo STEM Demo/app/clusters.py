@@ -13,6 +13,10 @@ class Cluster():
         data = data.values.tolist()
         return data
 
+    def update(self, cluster):
+        self.cluster = cluster
+        self.clusterInfo = self.clusterMat[cluster]
+
     def getInfo(self):
         return self.clusterInfo
 

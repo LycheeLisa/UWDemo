@@ -15,7 +15,7 @@ app.config['SECRET_KEY'] = 'asecretkey'
 @app.route('/', methods=['GET', 'POST'])
 def home():
     form = InfoForm()
-    myCluster = Cluster(6)
+    myCluster = Cluster(5)
     inputs = []
     clusterNum = 6
     clusterName = myCluster.getInfo()[1]
@@ -23,18 +23,13 @@ def home():
     clusterStats =  "static/images/problem.png"
 
 
-    if form.validate_on_submit():
+    if form.validate():
         inputs.extend((form.year.data, form.program.data, form.salaryFirst.data, form.salaryLast.data, form.firstEval.data,
         form.lastEval.data, form.coopTerms.data, form.uniAvg.data, form.hsAvg.data, form.uniYears.data, form.gender.data, form.stem.data))
         inputs = toInt(inputs)
-        flash('Data entered {}'.format(inputs))
         clusterNum = puesdoModel(inputs) #returns a number between 1 and 6
-        clusterInfo = gatherFiles(clusterNum)
-        clusterName = clusterInfo[1]
-        clusterSpider = "static/images/" + clusterInfo[2]
-        clusterStats = "static/images/" + clusterInfo[3]
-    return render_template("indexTEST.html", title = 'UWaterloo Demo', myCluster = myCluster, form=form, input=inputs, clusterNum=clusterNum,
-    clusterName = clusterName, clusterSpider = clusterSpider, clusterStats = clusterStats)
+        myCluster.update(clusterNum)
+    return render_template("indexTEST.html", title='UWaterloo Demo', myCluster=myCluster, form=form, inputs=inputs)
 
 @app.route('/about', methods=['GET'])
 def about():
