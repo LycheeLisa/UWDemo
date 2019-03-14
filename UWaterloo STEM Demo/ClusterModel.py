@@ -4,10 +4,10 @@
 # In[1]:
 
 
-import numpy as np 
-import pandas as pd 
-import seaborn as sns
-import matplotlib.pyplot as plt 
+import numpy as np
+import pandas as pd
+# import seaborn as sns
+# import matplotlib.pyplot as plt
 import math
 #import Kmeans algorithm from sci kit learn library
 from sklearn.cluster import KMeans
@@ -23,7 +23,7 @@ import pickle
 # In[2]:
 
 
-demo_raw = [4,0,4,2,0,0,4,3,3,3,0,0]
+# demo_raw = [4,0,4,2,0,0,4,3,3,3,0,0]
 
 
 # # Import All Files
@@ -32,11 +32,11 @@ demo_raw = [4,0,4,2,0,0,4,3,3,3,0,0]
 
 
 def import_tables():
-    demo_lookup = pd.read_csv('lookup_matrix.csv')
-    grades_lookup = pd.read_csv('grades_lookup.csv')
+    demo_lookup = pd.read_csv('static/data/lookup_matrix_model.csv')
+    grades_lookup = pd.read_csv('static/data/grades_lookup.csv')
     demo_lookup = demo_lookup.drop('Index ', axis = 1)
-    CPI = pd.read_csv('CPI.csv')
-    filename ='kmeans.sav'
+    CPI = pd.read_csv('static/data/CPI.csv')
+    filename ='static/data/kmeans.sav'
     loaded_model = pickle.load(open(filename, 'rb'))
     scaled_centroids = [[ 0.32437941,  1.12257734,  0.2588833 ,  0.32028921,  0.0725123 ,
          0.23579614,  0.71003824,  1.05484446,  0.73084281, -0.34221282,
@@ -57,7 +57,7 @@ def import_tables():
         -0.07561226, -1.19646059, -1.19435119, -1.04092105,  2.0537728 ,
         -0.60520237, -0.09467414,  0.06944558]]
     scaled_centroids = np.array(scaled_centroids)
-    
+
     feat_mean = [16.846483394541515,
  23.14965325273011,
  7.690257124322132,
@@ -84,7 +84,7 @@ def import_tables():
  0.04851102105645211,
  0.4852176766600594,
  0.4709866162364915]
-    
+
     return demo_lookup, grades_lookup, demo_lookup, CPI,loaded_model, scaled_centroids, feat_mean, feat_sd
 
 
@@ -106,23 +106,23 @@ def input_convert(demo_raw):
     for value in demo_raw:
         value = demo_lookup.iloc[value, i]
         demo_input.append(value)
-        i += 1 
-    return demo_input 
-    
+        i += 1
+    return demo_input
+
 
 
 # In[6]:
 
 
-demo_input = input_convert(demo_raw)
+# demo_input = input_convert(demo_raw)
 
 
 # In[7]:
 
 
-#function that converts all values to list for clustering 
+#function that converts all values to list for clustering
 def values_convert(demo_input):
-    
+
     #initiate empty list
     demo_input_clean = []
     #year equal to input
@@ -141,37 +141,37 @@ def values_convert(demo_input):
         adj_ann_salary_hrlylast = 32.5
     else:
         adj_ann_salary_hrlylast = (int(demo_input[3].split("-")[0]) + int(demo_input[3].split("-")[1]))/2
-    
+
     #take raw perf eval
     if demo_input[4] == '0-5':
         perf_eval_convfirst = 2.5
     else:
         perf_eval_convfirst = int(demo_input[4])
     if demo_input[5] == '0-5':
-        perf_eval_convlast = 2.5  
+        perf_eval_convlast = 2.5
     else:
         perf_eval_convlast = int(demo_input[5])
-    #student eval is the average of the two perf eval 
+    #student eval is the average of the two perf eval
     stud_eval_convfirst= (perf_eval_convfirst + perf_eval_convlast)/2
     stud_eval_convlast= (perf_eval_convfirst + perf_eval_convlast)/2
-    #take raw 
+    #take raw
     no_terms = int(demo_input[6])
 
-    # take average of range of uni marks 
+    # take average of range of uni marks
     if demo_input[7] == '<50':
         u_avg = 50
     elif demo_input[7] == '95+':
         u_avg = 97.5
     else:
         u_avg = (int(demo_input[7].split("-")[0]) + int(demo_input[7].split("-")[1]))/2
-    # do same for high school 
+    # do same for high school
     if demo_input[8] == '<50':
         h_avg = 50
     elif demo_input[8] == '95+':
         h_avg = 97.5
     else:
         h_avg = (int(demo_input[8].split("-")[0]) + int(demo_input[8].split("-")[1]))/2
-        
+
     # of terms is the years multiplied by 2
     no_acad_terms = demo_input[9] * 2
     gen_ind = demo_input[10]
@@ -181,18 +181,18 @@ def values_convert(demo_input):
     exp_u_avg = pd.merge(pd.DataFrame(demo_input).transpose(), grades_lookup, 'inner',
                      left_on = 1, right_on = 'acad_plan_descr')['course_average_grade5'][0]
     #divide user average by expected average to get ratio
-    
+
     c_avg_r = u_avg / exp_u_avg
 
     #elective equal to cor for simplicity
     e_avg_r = c_avg_r
-    
+
     #take average high school to uni ratio
     avg_u_diff = 1.0238821823443678
 
-    #apply to hs average 
+    #apply to hs average
     h_avg_r = c_avg_r * avg_u_diff
-    
+
     #create list
     demo_input_clean.extend([year, std_no, adj_ann_salary_hrlyfirst, adj_ann_salary_hrlylast, perf_eval_convfirst, perf_eval_convlast, no_terms,
                              stud_eval_convfirst, stud_eval_convlast, c_avg_r, e_avg_r, no_acad_terms, h_avg_r, gen_ind, stem_ind])
@@ -203,13 +203,13 @@ def values_convert(demo_input):
 # In[8]:
 
 
-demo_input_clean, std_no = values_convert(demo_input)
+# demo_input_clean, std_no = values_convert(demo_input)
 
 
 # In[9]:
 
 
-#function takes clean input, and converts to final dataframe 
+#function takes clean input, and converts to final dataframe
 def cluster_input_convert(demo_input_clean):
     demo_list = ['calendar_year','STUDENT_KEY','adj_ann_salary_hrlyfirst',
                  'adj_ann_salary_hrlylast','perf_eval_convfirst','perf_eval_convlast',
@@ -223,14 +223,14 @@ def cluster_input_convert(demo_input_clean):
          'Female_Ind', 'STEM_Ind']
 
     demo_df = pd.DataFrame(demo_input_clean).transpose()
-    demo_df.columns = demo_list           
-    return demo_df 
+    demo_df.columns = demo_list
+    return demo_df
 
 
 # In[10]:
 
-
-demo_df = cluster_input_convert(demo_input_clean)
+#
+# demo_df = cluster_input_convert(demo_input_clean)
 
 
 # In[11]:
@@ -246,8 +246,8 @@ def salary_adj(demo_df):
 
 # In[12]:
 
-
-demo_df_adj = salary_adj(demo_df)
+#
+# demo_df_adj = salary_adj(demo_df)
 
 
 # In[13]:
@@ -258,19 +258,10 @@ def final_list(demo_df_adj):
     examples = []
     for col in list(demo_nokey):
         for value in demo_nokey[col]:
-            examples.append(value)   
-            
+            examples.append(value)
+
     return examples
 
-
-# In[14]:
-
-
-demo_nokey = demo_df_adj.drop("STUDENT_KEY", axis =1)
-examples = []
-for col in list(demo_nokey):
-    for value in demo_nokey[col]:
-        examples.append(value)
 
 
 # In[15]:
@@ -283,20 +274,24 @@ def scale(examples):
         scaled.append(scale)
     scaled = np.array(scaled)
     scaled = pd.DataFrame(scaled).transpose()
-    
+
     return scaled
 
+def toInt(strList):
+    for i in range(len(strList)):
+        strList[i] = int(strList[i])
+    return strList
 
 # In[16]:
 
 
-examples = final_list(demo_df_adj)
+# examples = final_list(demo_df_adj)
 
 
 # In[17]:
 
 
-scaled = scale(examples)
+# scaled = scale(examples)
 
 
 # In[18]:
@@ -305,10 +300,10 @@ scaled = scale(examples)
 def result(scaled):
     distances = np.column_stack([np.sum((scaled - center)**2, axis=1)**0.5 for center in scaled_centroids])
     i = distances.argmin()
-    
+
     clust_list = ['The Gold Standards', 'The High Potentials', 'The Experience Seekers' ,'The Intrinsic Go Getters', 'The Participators','The Low Performers']
-    num_list = [4,1,5,0,2,3]
-    final = num_list[i]
+    num_list = [3,5,4,1,0,2]
+    final = num_list[i]+1
     return final
 
 
@@ -322,20 +317,16 @@ def master(demo_raw):
     demo_df = cluster_input_convert(demo_input_clean)
     demo_df_adj = salary_adj(demo_df)
     examples = final_list(demo_df_adj)
-    scaled = scale(examples)
+    scaled = scale(toInt(examples))
     output = result(scaled)
-    
+
     return output
 
 
 # In[20]:
 
 
-master(demo_raw)
+# master(demo_raw)
 
 
 # In[ ]:
-
-
-
-

@@ -5,6 +5,7 @@ from flask_bootstrap import Bootstrap
 from random import randrange #for testing- TO BE DELETED
 import csv, sys
 from app.clusters import Cluster
+from ClusterModel import master
 
 
 
@@ -27,7 +28,7 @@ def home():
         inputs.extend((form.year.data, form.program.data, form.salaryFirst.data, form.salaryLast.data, form.firstEval.data,
         form.lastEval.data, form.coopTerms.data, form.uniAvg.data, form.hsAvg.data, form.uniYears.data, form.gender.data, form.stem.data))
         inputs = toInt(inputs)
-        clusterNum = puesdoModel(inputs) #returns a number between 1 and 6
+        clusterNum = master(inputs) #returns a number between 1 and 6
         myCluster.update(clusterNum)
     return render_template("indexTEST.html", title='UWaterloo Demo', myCluster=myCluster, form=form, inputs=inputs)
 

@@ -17,10 +17,10 @@
       });
     }
   });
-
-// Profile Hide
+$(window).ready(function () {
   $("#button").click(function(){
-    $("profile").hide();
+    $("#profile").show();
+	});
 	});
 
   // Back to top button
