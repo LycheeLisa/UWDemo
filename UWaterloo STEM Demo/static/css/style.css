@@ -716,8 +716,8 @@ a:hover {
 .percent-box {
   background-color: #fff;
   padding: 2.5rem 2.5rem;
-  border-radius: 1rem;
-  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.2rem;
 }
 
 .service-box:hover .ico-circle {
