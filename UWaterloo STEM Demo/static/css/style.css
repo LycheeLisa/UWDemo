@@ -153,9 +153,22 @@ a:hover {
   font-weight: bold;
   text-transform: uppercase;
 }
+.title-b {
+  position: relative;
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+}
 
 .subtitle-a {
   color: #4e4e4e;
+}
+
+.subtitle-b {
+  position: relative;
+  margin: 0 2rem 0 2rem;
+  color: #fff;
 }
 
 .line-mf {
