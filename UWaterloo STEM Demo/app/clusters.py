@@ -51,3 +51,11 @@ class Cluster():
     def getNeeds(self):
         needs = [str(self.clusterInfo[x]) for x in range(14,18)]
         return needs
+
+    def getTraitsPerc(self):
+        traitsPerc = [str(self.clusterInfo[x]) for x in range(18,22)]
+        return traitsPerc
+
+    def getTraitsWord(self):
+        traitsWord = [str(self.clusterInfo[x]) for x in range(22,26)]
+        return traitsWord
