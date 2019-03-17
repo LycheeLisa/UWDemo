@@ -17,11 +17,10 @@
       });
     }
   });
-$(window).ready(function () {
-  $("#button").click(function(){
-    $("#profile").show();
-	});
-	});
+
+// async form submission
+
+
 
   // Back to top button
   $(window).scroll(function() {

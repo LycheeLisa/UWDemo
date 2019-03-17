@@ -317,7 +317,7 @@ def master(demo_raw):
     demo_df = cluster_input_convert(demo_input_clean)
     demo_df_adj = salary_adj(demo_df)
     examples = final_list(demo_df_adj)
-    scaled = scale(toInt(examples))
+    scaled = scale(examples)
     output = result(scaled)
 
     return output

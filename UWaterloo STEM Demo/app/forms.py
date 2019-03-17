@@ -6,10 +6,10 @@ import numpy as np
 import pandas as pd
 
 def gatherOptions (filename):
-    data = pd.read_csv(filename, names=list(range(13)))
-    # dataTran = data.T
+    data = pd.read_csv(filename, names=list(range(13)), delimiter="\t", encoding="cp1252", header=None)
     return data
 
+#create list of tuples for a given option in the form
 def createChoices (col,data):
     choices = data.iloc[:,col]
     choices = choices.dropna()
@@ -19,7 +19,7 @@ def createChoices (col,data):
 
 # def formTuple (list)
 class InfoForm(FlaskForm):
-    optionsFile = "static/data/lookup_matrix.csv"
+    optionsFile = "static/data/lookup_matrix.txt"
     formOptions = gatherOptions(optionsFile)
     optionNames = formOptions.iloc[0,:]
     year =  SelectField(optionNames[1], choices = createChoices(1,formOptions))
