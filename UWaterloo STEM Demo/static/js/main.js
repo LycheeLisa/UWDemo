@@ -40,11 +40,6 @@ $("form").submit(function(event){
 
 });
 
-function clusterview(val){
-  console.log(val);
-}
-
-
   // Back to top button
   $(window).scroll(function() {
     if ($(this).scrollTop() > 100) {

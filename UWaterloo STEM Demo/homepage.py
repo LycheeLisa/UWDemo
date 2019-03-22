@@ -38,7 +38,8 @@ def formsubmit():
 
 @app.route('/clusterview', methods=['GET', 'POST'])
 def clusterview():
-    clusterNum = request.form['data']
+    data = request.form['data']
+    clusterNum = int(data.strip('"'))
     myCluster = Cluster(clusterNum)
     return render_template("profile.html", title='UWaterloo Demo', myCluster=myCluster)
 
