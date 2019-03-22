@@ -20,6 +20,29 @@
 
 // async form submission
 
+$("form").submit(function(event){
+
+	var formData = $("form").serialize();
+
+    $.post("/formsubmit",
+		{
+      data: JSON.stringify(formData),
+		},
+		function(response) {
+						$("#profile").html(response);
+
+					},
+	);
+	$([document.documentElement, document.body]).animate({
+		scrollTop: $("#profile").offset().top
+	}, 2000);
+
+
+});
+
+function clusterview(val){
+  console.log(val);
+}
 
 
   // Back to top button

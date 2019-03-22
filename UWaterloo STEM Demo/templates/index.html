@@ -27,7 +27,7 @@
                     </h5>
                   </div>
                   <div>
-                      <form id="modelForm" action="" method="post" role="form" class="contactForm">
+                      <form onSubmit = "return false;" id="modelForm" action="" method="GET" role="form">
                         {{ form.csrf_token }}
                       <div class="row">
                         <div class="col-md-12 mb-3">

@@ -2,11 +2,10 @@ from flask import Flask, render_template, flash, redirect, request
 from app import app
 from app.forms import InfoForm
 from flask_bootstrap import Bootstrap
-from random import randrange #for testing- TO BE DELETED
 import csv, sys
 from app.clusters import Cluster
 from ClusterModel import master
-
+import json
 
 
 app = Flask(__name__, template_folder='templates')
@@ -16,22 +15,32 @@ app.config['SECRET_KEY'] = 'asecretkey'
 @app.route('/', methods=['GET', 'POST'])
 def home():
     form = InfoForm()
-    myCluster = Cluster(5)
-    inputs = []
-    if form.validate():
-        inputs.extend((form.year.data, form.program.data, form.salaryFirst.data, form.salaryLast.data, form.firstEval.data,
-        form.lastEval.data, form.coopTerms.data, form.uniAvg.data, form.hsAvg.data, form.uniYears.data, form.gender.data, form.stem.data))
-        inputs = toInt(inputs)
-        clusterNum = master(inputs) #returns a number between 1 and 6
-        myCluster.update(clusterNum)
-    return render_template("index.html", title='UWaterloo Demo', myCluster=myCluster, form=form, inputs=inputs)
+    return render_template("index.html", title='UWaterloo Demo', form=form)
 
-# @app.route('/about', methods=['GET'])
-# def about():
-#     return render_template("aboutproject.html", title= "About This Project")
-#
-#
-# @app.route('/result', methods=['GET', 'POST'])
+
+@app.route('/formsubmit', methods=['GET', 'POST'])
+def formsubmit():
+
+    inputs = request.form['data']
+    inputs = inputs.strip('"').split("&")
+    formval={};
+
+    for i in range(len(inputs)-1):
+        formval[inputs[i+1].split("=")[0]] = int(inputs[i+1].split("=")[1])
+
+    modelList = [formval["year"], formval["program"], formval["salaryFirst"], formval["salaryLast"], formval["firstEval"],
+    formval["lastEval"], formval["coopTerms"], formval["uniAvg"], formval["hsAvg"], formval["uniYears"], formval["gender"], formval["stem"]]
+
+    clusterNum = master(modelList)
+    myCluster = Cluster(clusterNum)
+
+    return render_template("profile.html", title='UWaterloo Demo', myCluster=myCluster)
+
+@app.route('/clusterview', methods=['GET', 'POST'])
+def clusterview():
+    clusterNum = request.form['data']
+    myCluster = Cluster(clusterNum)
+    return render_template("profile.html", title='UWaterloo Demo', myCluster=myCluster)
 
 #gather graphics file names based on cluster
 def gatherFiles (clusterNum):
@@ -47,13 +56,6 @@ def toInt(strList):
     for i in range(len(strList)):
         strList[i] = int(strList[i])
     return strList
-
-# fake model function
-def puesdoModel(list):
-    x = randrange(6)
-    x = x+1
-    flash(x)
-    return x
 
 if __name__ == "__main__":
     app.run(debug=True, port=9999)

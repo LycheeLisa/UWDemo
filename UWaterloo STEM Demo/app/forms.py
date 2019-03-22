@@ -34,3 +34,4 @@ class InfoForm(FlaskForm):
     uniYears = SelectField(optionNames[10], choices = createChoices(10,formOptions))
     gender = SelectField(optionNames[11], choices = createChoices(11,formOptions))
     stem = SelectField(optionNames[12], choices = createChoices(12,formOptions))
+    submit = SubmitField('Run Model')
