@@ -82,7 +82,7 @@
 <div class="row">
 <div class="col-md-3">
     <div class="percent-box subhead">
-      <div class="c100 p{{myCluster.getStats()[0]}} yellow">
+      <div class="c100 p{{myCluster.getStats()[0]}} indigo">
           <span><b>{{myCluster.getStats()[0]}}%</b></span>
           <div class="slice">
             <div class="bar"></div>
@@ -96,7 +96,7 @@
 </div>
 <div class="col-md-3">
     <div class="percent-box subhead">
-      <div class="c100 p{{myCluster.getStats()[1]}} yellow">
+      <div class="c100 p{{myCluster.getStats()[1]}} indigo">
           <span><b>{{myCluster.getStats()[1]}}%</b></span>
           <div class="slice">
             <div class="bar"></div>
@@ -110,7 +110,7 @@
 </div>
 <div class="col-md-3">
     <div class="percent-box subhead">
-      <div class="c100 p{{myCluster.getStats()[2]}} yellow">
+      <div class="c100 p{{myCluster.getStats()[2]}} indigo">
           <span><b>{{myCluster.getStats()[2]}}%</b></span>
           <div class="slice">
             <div class="bar"></div>
@@ -124,7 +124,7 @@
 </div>
 <div class="col-md-3">
     <div class="percent-box subhead">
-      <div class="c100 p{{myCluster.getStats()[3]}} yellow">
+      <div class="c100 p{{myCluster.getStats()[3]}} indigo">
           <span><b>{{myCluster.getStats()[3]}}%</b></span>
           <div class="slice">
             <div class="bar"></div>
@@ -143,24 +143,31 @@
       </div>
 
       <div class="container box-shadow-full">
-        <div class="row">
+        <h1 class="title-left" id="learn">Learn about all the Clusters</h2>
+        <div class="row display-clusters">
           <div class="col-sm text-center">
-            <button type="button" id="cluster1" class="btn btn-secondary" value="1" onclick="clusterview(this.value)">Cluster 1</button>
+            <button type="button" id="cluster1" class="btnCluster" value="1" onclick="clusterview(this.value)"><img src ="../static/images/notebook.png"></button>
+            <p class="title-s">The Participators</p>
           </div>
           <div class="col-sm text-center">
-            <button type="button" id="cluster2" class="btn btn-secondary" value="2" onclick="clusterview(this.value)">Cluster 2</button>
+            <button type="button" id="cluster2" class="btnCluster" value="2" onclick="clusterview(this.value)"><img src ="../static/images/workspace.png"></button>
+            <p class="title-s">The Intrinsic Go-Getters</p>
           </div>
           <div class="col-sm text-center">
-            <button type="button" id="cluster3" class="btn btn-secondary" value="3" onclick="clusterview(this.value)">Cluster 3</button>
+            <button type="button" id="cluster3" class="btnCluster" value="3" onclick="clusterview(this.value)"><img src ="../static/images/laptop.png"></button>
+            <p class="title-s">The Low Performers</p>
           </div>
           <div class="col-sm text-center">
-            <button type="button" id="cluster4" class="btn btn-secondary" value="4" onclick="clusterview(this.value)">Cluster 4</button>
+            <button type="button" id="cluster4" class="btnCluster" value="4" onclick="clusterview(this.value)"><img src ="../static/images/brainstorm.png"></button>
+            <p class="title-s">The Gold Standards</p>
           </div>
           <div class="col-sm text-center">
-            <button type="button" id="cluster5" class="btn btn-secondary" value="5" onclick="clusterview(this.value)">Cluster 5</button>
+            <button type="button" id="cluster5" class="btnCluster" value="5" onclick="clusterview(this.value)"><img src ="../static/images/graduate.png"></button>
+            <p class="title-s">The Experience Seekers</p>
           </div>
           <div class="col-sm text-center">
-            <button type="button" id="cluster6" class="btn btn-secondary" value="6" onclick="clusterview(this.value)">Cluster 6</button>
+            <button type="button" id="cluster6" class="btnCluster" value="6" onclick="clusterview(this.value)"><img src ="../static/images/studying.png"></button>
+            <p class="title-s">The High Potentials</p>
           </div>
         </div>
       </div>

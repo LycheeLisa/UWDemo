@@ -1,3 +1,14 @@
+.btnCluster{
+  cursor: pointer;
+  background-color: white;
+  border-color: transparent;
+}
+.btnCluster:hover {
+  background-color: #dfe8ed;
+}
+.display-clusters{
+  padding-top: 3rem;
+}
 .fact{
   height:300px;
 }
