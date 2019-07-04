@@ -143,7 +143,7 @@
       </div>
 
       <div class="container box-shadow-full">
-        <h1 class="title-left" id="learn">Learn about all the Clusters</h2>
+        <h1 class="title-left" id="learn">Learn about all the Clusters</h1>
         <div class="row display-clusters">
           <div class="col-sm text-center">
             <button type="button" id="cluster1" class="btnCluster" value="1" onclick="clusterview(this.value)"><img src ="../static/images/notebook.png"></button>
@@ -171,12 +171,24 @@
           </div>
         </div>
       </div>
+
+      <div class="container box-shadow-full">
+        <h1 class="title-left" id="learn">Demo Stats</h1>
+        <canvas id="myChart"></canvas>
+        <script type="text/javascript" language="JavaScript">
+            clusterGraph({{clusterGraph}});
+        </script>
+        <p class="title-s" align="center">{{total}} People have used the demo!</p>
+      </div>
+
+
     </div>
   </div>
 </div>
 </section>
 
 <script src="../static/js/profile.js"></script>
+
 
 
 {% endblock %}

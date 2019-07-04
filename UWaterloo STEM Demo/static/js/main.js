@@ -35,7 +35,7 @@ $("form").submit(function(event){
 	);
 	$([document.documentElement, document.body]).animate({
 		scrollTop: $("#profile").offset().top
-	}, 2000);
+	}, 1000);
 
 
 });

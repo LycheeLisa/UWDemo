@@ -5,7 +5,9 @@ from flask_bootstrap import Bootstrap
 import csv, sys
 from app.clusters import Cluster
 from ClusterModel import master
+import time, datetime
 import json
+import pandas as pd
 
 
 app = Flask(__name__, template_folder='templates')
@@ -31,10 +33,18 @@ def formsubmit():
     modelList = [formval["year"], formval["program"], formval["salaryFirst"], formval["salaryLast"], formval["firstEval"],
     formval["lastEval"], formval["coopTerms"], formval["uniAvg"], formval["hsAvg"], formval["uniYears"], formval["gender"], formval["stem"]]
 
+    #run the data through the model "master"
     clusterNum = master(modelList)
+    #generate the cluster object with the associated cluster values
     myCluster = Cluster(clusterNum)
+    #write the model results to a table
+    saveResults(clusterNum, modelList)
+    #read the summary from the table
+    graphData = clusterGraph()
 
-    return render_template("profile.html", title='UWaterloo Demo', myCluster=myCluster)
+    total = sum(graphData)
+
+    return render_template("profile.html", title='UWaterloo Demo', myCluster=myCluster, clusterGraph=graphData, total= total)
 
 @app.route('/clusterview', methods=['GET', 'POST'])
 def clusterview():
@@ -42,6 +52,37 @@ def clusterview():
     clusterNum = int(data.strip('"'))
     myCluster = Cluster(clusterNum)
     return render_template("profile.html", title='UWaterloo Demo', myCluster=myCluster)
+#lookup actual value using numeric values
+def lookupValue(modelList):
+    data = pd.read_csv("static/data/lookup_matrix.txt", names=list(range(13)), delimiter="\t", encoding="cp1252", header=None)
+    formInputs = [(data.iat[(modelList[i])+1,(i+1)]) for i in range(len(modelList))]
+    return formInputs
+
+#write data results to a table
+def saveResults(cluster, data):
+    curTime =  time.time()
+    timestamp =  datetime.datetime.fromtimestamp(curTime).strftime('%Y-%m-%d %H:%M:%S')
+    dataEntry = [timestamp, cluster] + lookupValue(data)
+    print(dataEntry)
+    with open('static/data/Model_Results.csv', 'a') as csvFile:
+        writer = csv.writer(csvFile)
+        writer.writerow(dataEntry)
+#generate summary data from table
+
+def clusterGraph():
+    modelData = pd.read_csv("static/data/Model_Results.csv")
+    counts = modelData.Cluster.value_counts()
+
+    keys = counts.keys().tolist()
+    data = counts.tolist()
+
+    clusterGraph = [0,0,0,0,0,0]
+
+    for i in range(len(keys)):
+        val = keys[i]
+        clusterGraph[val-1] += data[i]
+
+    return clusterGraph
 
 #gather graphics file names based on cluster
 def gatherFiles (clusterNum):
