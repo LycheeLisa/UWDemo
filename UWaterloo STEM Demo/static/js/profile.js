@@ -41,6 +41,12 @@ function clusterGraph(clusterVals){
 	            data: clusterVals
 	        }]
 	    },
+			options: {
+				legend: {
+            display: true,
+						position: "right",
+        }
+			}
 			//
 	    // // Configuration options go here
 	    // options: {}
