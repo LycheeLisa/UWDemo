@@ -19,14 +19,16 @@ def home():
     form = InfoForm()
     return render_template("index.html", title='UWaterloo Demo', form=form)
 
-
+#Render profile based on Model inputs, store model inputs and cluster and generate summary graph.
 @app.route('/formsubmit', methods=['GET', 'POST'])
 def formsubmit():
 
+    #form values selected from posted json data
     inputs = request.form['data']
     inputs = inputs.strip('"').split("&")
     formval={};
 
+    #populate dictionary with form data
     for i in range(len(inputs)-1):
         formval[inputs[i+1].split("=")[0]] = int(inputs[i+1].split("=")[1])
 
@@ -39,19 +41,28 @@ def formsubmit():
     myCluster = Cluster(clusterNum)
     #write the model results to a table
     saveResults(clusterNum, modelList)
-    #read the summary from the table
+    #generate the summary results from the table
     graphData = clusterGraph()
 
     total = sum(graphData)
 
     return render_template("profile.html", title='UWaterloo Demo', myCluster=myCluster, clusterGraph=graphData, total= total)
 
+#Render profile based on Cluster selection, store model inputs and cluster and generate summary graph.
 @app.route('/clusterview', methods=['GET', 'POST'])
 def clusterview():
+    #cluster profile selected from posted json data
     data = request.form['data']
     clusterNum = int(data.strip('"'))
+
+    #generate the cluster object with the associated cluster values
     myCluster = Cluster(clusterNum)
-    return render_template("profile.html", title='UWaterloo Demo', myCluster=myCluster)
+
+    #generate the summary results from the table
+    graphData = clusterGraph()
+    total = sum(graphData)
+
+    return render_template("profile.html", title='UWaterloo Demo', myCluster=myCluster, clusterGraph=graphData, total= total)
 #lookup actual value using numeric values
 def lookupValue(modelList):
     data = pd.read_csv("static/data/lookup_matrix.txt", names=list(range(13)), delimiter="\t", encoding="cp1252", header=None)
@@ -67,8 +78,9 @@ def saveResults(cluster, data):
     with open('static/data/Model_Results.csv', 'a') as csvFile:
         writer = csv.writer(csvFile)
         writer.writerow(dataEntry)
-#generate summary data from table
+    return dataEntry
 
+#generate summary data from table
 def clusterGraph():
     modelData = pd.read_csv("static/data/Model_Results.csv")
     counts = modelData.Cluster.value_counts()
