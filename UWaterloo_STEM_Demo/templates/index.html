@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block form %}
+  <section id="model" class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(../static/images/circuitboard.jpg)">
+    <div class="overlay-mf"></div>
+    <div class="col-sm-12 text-center">
+      <h3 class="title-b">
+        Try the Model
+      </h3>
+      <h4 class="subtitle-b headerpadding">
+        By answering 12 simple questions below, our clustering model will determine which of the 6 clusters best represent you.
+        <br>After the model has run, you can see a sample profile from a woman in your cluster as well as overall statistics on women in that cluster.
+        <br><br>Check out the "Ways to support me" section of each profile for details on how best to support the women in each cluster!
+      </h4>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="contact-mf">
+            <div id="service" class="box-shadow-full">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="title-box-2">
+                    <h5 class="title-left">
+                      General Information
+                    </h5>
+                  </div>
+                  <div>
+                      <form onSubmit = "return false;" id="modelForm" action="" method="GET" role="form">
+                        {{ form.csrf_token }}
+                      <div class="row">
+                        <div class="col-md-12 mb-3">
+                          <div class="form-group">
+                              <d1>
+                                {{wtf.form_field(form.year)}}
+                              </d1>
+                              <d1>
+                                {{wtf.form_field(form.gender)}}
+                              </d1>
+                              <d1>
+                                {{wtf.form_field(form.hsAvg)}}
+                              </d1>
+                              <d1>
+                                {{wtf.form_field(form.program)}}
+                              </d1>
+                              <d1>
+                                {{wtf.form_field(form.uniAvg)}}
+                              </d1>
+                              <d1>
+                                {{wtf.form_field(form.stem)}}
+                              </d1>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="title-box-2 pt-4 pt-md-0">
+                    <h5 class="title-left">
+                      Co-op Information
+                    </h5>
+                  </div>
+                  <div>
+                      <div class="row">
+                        <div class="col-md-12 mb-3">
+                          <div class="form-group">
+                              <d1>
+                                {{wtf.form_field(form.uniYears)}}
+                              </d1>
+                              <d1>
+                                {{wtf.form_field(form.coopTerms)}}
+                              </d1>
+                              <d1>
+                                {{wtf.form_field(form.salaryFirst)}}
+                              </d1>
+                              <d1>
+                                {{wtf.form_field(form.salaryLast)}}
+                              </d1>
+                              <d1>
+                                {{wtf.form_field(form.firstEval)}}
+                              </d1>
+                              <d1>
+                                {{wtf.form_field(form.lastEval)}}
+                              </d1>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+                <div style="text-align: center;" class="col align-self-center">
+                  <input id="button" type="submit" class="button button-a button-big button-rounded" value="Run Model"></input>
+                </div>
+              </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
