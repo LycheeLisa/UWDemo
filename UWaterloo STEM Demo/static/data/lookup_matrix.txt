@@ -1,49 +1,49 @@
 Index 	What year did you graduate?	What program did you take?	What was your first Co-op hourly wage?	What was your last Co-op hourly wage?	What was your first Co-op term evaluation (out of 10)?	What was your last Co-op term evaluation (out of 10)?	How many Co-op terms did you have?	What was your University average (%)?	What was your High School average (%)?	How many years did you spend in University?	What is your gender?	"Is your program in STEM (Science, Technology, Engineering & Math)?"
 0	1970	Accounting & Financial Mgt	$10 - $14	$10 - $14	0-5	0-5	1	<50	<50	1	Male	Yes
 1	1971	Actuarial Science	$15 - $20	$15 - $20	6	6	2	50-54	50-54	2	Female	No
-2	1972	Architecture	$21 - $25	$21 - $25	7	7	3	55-59	55-59	3	Non-Binary
-3	1973	Biology	$25 - $30	$25 - $30	8	8	4	60-64	60-64	4
-4	1974	Business & Math (Double Degree)	$30+	$30+	9	9	5	65-69	65-69	5
-5	1975	Chemical Engineering			10	10	6	70-74	70-74	6
-6	1976	Civil Engineering						75-79	75-79
-7	1977	Computer Engineering						80-84	80-84
-8	1978	Computer Science						85-89	85-89
-9	1979	Electrical Engineering						90-94	90-94
-10	1980	Environment & Business						95+	95+
-11	1981	Health Studies
-12	1982	Kinesiology
-13	1983	Mechanical Engineering
-14	1984	Mechatronics Engineering
-15	1985	Nanotechnology Engineering
-16	1986	Pharmacy
-17	1987	Planning
-18	1988	Software Engineering
-19	1989	Systems Design Engineering
-20	1990
-21	1991
-22	1992
-23	1993
-24	1994
-25	1995
-26	1996
-27	1997
-28	1998
-29	1999
-30	2000
-31	2001
-32	2002
-33	2003
-34	2004
-35	2005
-36	2006
-37	2007
-38	2008
-39	2009
-40	2010
-41	2011
-42	2012
-43	2013
-44	2014
-45	2015
-46	2016
-47	2017
+2	1972	Anthropology	$21 - $25	$21 - $25	7	7	3	55-59	55-59	3	Non-Binary	
+3	1973	Applied Mathematics	$25 - $30	$25 - $30	8	8	4	60-64	60-64	4		
+4	1974	Arts & Business	$30+	$30+	9	9	5	65-69	65-69	5		
+5	1975	Biology			10	10	6	70-74	70-74	6		
+6	1976	Chemical Engineering						75-79	75-79			
+7	1977	Chemistry						80-84	80-84			
+8	1978	Civil Engineering						85-89	85-89			
+9	1979	Computer Engineering						90-94	90-94			
+10	1980	Computer Science						95+	95+			
+11	1981	Economics										
+12	1982	Electrical Engineering										
+13	1983	English Literature										
+14	1984	Environmental Engineering										
+15	1985	Fine Arts										
+16	1986	Geological Engineering										
+17	1987	Health Studies										
+18	1988	Kinesiology										
+19	1989	Management Engineering										
+20	1990	Mathematics										
+21	1991	Mechanical Engineering										
+22	1992	Mechatronics Engineering										
+23	1993	Nanotechnology Engineering										
+24	1994	Political Science										
+25	1995	Psychology										
+26	1996	Science & Business										
+27	1997	Sociology										
+28	1998	Software Engineering										
+29	1999	Statistics										
+30	2000	Systems Design Engineering										
+31	2001											
+32	2002											
+33	2003											
+34	2004											
+35	2005											
+36	2006											
+37	2007											
+38	2008											
+39	2009											
+40	2010											
+41	2011											
+42	2012											
+43	2013											
+44	2014											
+45	2015											
+46	2016											
+47	2017											
