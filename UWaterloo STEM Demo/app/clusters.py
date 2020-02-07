@@ -21,7 +21,7 @@ class Cluster():
         return self.clusterInfo
 
     def getNum(self):
-        return self.cluster
+        return self.clusterInfo[0]
 
     def getClusName(self):
         return self.clusterInfo[1]

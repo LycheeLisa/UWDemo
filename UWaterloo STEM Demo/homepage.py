@@ -37,8 +37,11 @@ def formsubmit():
 
     #run the data through the model "master"
     clusterNum = master(modelList)
+    #shift the cluster value based on gender to generate the right gender profile
+    profileNum = modelList[10]*6 + clusterNum
+
     #generate the cluster object with the associated cluster values
-    myCluster = Cluster(clusterNum)
+    myCluster = Cluster(profileNum)
     #write the model results to a table
     saveResults(clusterNum, modelList)
     #generate the summary results from the table
