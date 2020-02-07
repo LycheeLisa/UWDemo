@@ -94,7 +94,7 @@ def clusterGraph():
     clusterGraph = [0,0,0,0,0,0]
 
     for i in range(len(keys)):
-        val = keys[i]
+        val = int(keys[i])
         clusterGraph[val-1] += data[i]
 
     return clusterGraph
